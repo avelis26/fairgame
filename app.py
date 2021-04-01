@@ -1,5 +1,6 @@
 #      FairGame - Automated Purchasing Program
 #      Copyright (C) 2021  Hari Nagarajan
+#      Forked and modifed by Graham Pinkston (avelis26)
 #
 #      This program is free software: you can redistribute it and/or modify
 #      it under the terms of the GNU General Public License as published by
