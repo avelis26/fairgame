@@ -65,9 +65,9 @@ def notify_on_crash(func):
             func(*args, **kwargs)
         except KeyboardInterrupt:
             pass
-        else:
-            notification_handler.send_notification(f"FairGame has crashed.")
-            raise
+        # else:
+        #    notification_handler.send_notification(f"FairGame has crashed.")
+        #    raise
 
     return decorator
 

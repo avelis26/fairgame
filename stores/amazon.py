@@ -1631,6 +1631,7 @@ class Amazon:
 
     def __del__(self):
         self.delete_driver()
+        return driver_closed
 
     def show_config(self):
         log.info(f"{'=' * 50}")
@@ -1739,6 +1740,8 @@ class Amazon:
 
     def delete_driver(self):
         try:
+            global driver_closed
+            driver_closed = False
             if platform.system() == "Windows" and self.driver:
                 log.info("Cleaning up after web driver...")
                 # brute force kill child Chrome pids with fire
@@ -1752,6 +1755,7 @@ class Amazon:
                         pass
             elif self.driver:
                 self.driver.quit()
+            driver_closed = True
 
         except Exception as e:
             log.info(e)
@@ -1759,6 +1763,7 @@ class Amazon:
                 "Failed to clean up after web driver.  Please manually close browser."
             )
             return False
+        
         return True
 
 
