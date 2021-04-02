@@ -60,7 +60,7 @@ logging.basicConfig(
 log = logging.getLogger("fairgame")
 log.setLevel(logging.DEBUG)
 
-LOGLEVEL = os.environ.get("LOGLEVEL", "INFO").upper()
+LOGLEVEL = os.environ.get("LOGLEVEL", "DEBUG").upper()
 stream_handler = logging.StreamHandler()
 stream_handler.setFormatter(logging.Formatter(FORMAT))
 

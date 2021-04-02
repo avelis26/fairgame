@@ -227,8 +227,8 @@ class Amazon:
             log.warning(f"Found {cart_quantity} item(s) in your cart.")
             log.info("Delete all item(s) in cart before starting bot.")
             self.driver.get(AMAZON_URLS["CART_URL"])
-            log.info("Exiting in 30 seconds...")
-            time.sleep(30)
+            log.info("Exiting in 3 seconds...")
+            time.sleep(3)
             return
         self.handle_startup()
         if not self.is_logged_in():
