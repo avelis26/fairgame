@@ -1,5 +1,6 @@
 sudo apt update && sudo apt upgrade -y
-sudo apt install -y build-essential tk-dev libreadline-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev libxslt1-dev rustc libjpeg-dev zlib1g-dev libfreetype6-dev libopenjp2-7 libtiff5 libncurses5-dev libncursesw5-dev chromium-chromedriver liblcms2-dev
+sudo apt install -y build-essential tk-dev libreadline-dev libdb5.3-dev libgdbm-dev libsqlite3-dev libssl-dev libbz2-dev libexpat1-dev liblzma-dev zlib1g-dev libffi-dev libxslt1-dev rustc libjpeg-dev zlib1g-dev libfreetype6-dev libopenjp2-7 libtiff5 libncurses5-dev libncursesw5-dev chromium-chromedriver
+# liblcms1-dev failes to install so I installed liblcms2-dev
 version=3.8.8
 wget https://www.python.org/ftp/python/$version/Python-$version.tgz
 tar zxf Python-$version.tgz
@@ -26,5 +27,15 @@ cd ./sources
 git clone git@github.com:avelis26/fairgame.git
 cd fairgame/
 git switch dev
+pip3 install pipenv
+export PATH=$PATH:/home/$USER/.local/bin
+pipenv shell 
+pipenv install
+cp /usr/bin/chromedriver /home/$USER/.local/share/virtualenvs/fairgame-9C-Yzi6E/lib/python3.8/site-packages/chromedriver_py/chromedriver_linux64
 
+#/home/$USER/.local/share/virtualenvs/fairgame-9C-Yzi6E/lib/python3.8/site-packages/selenium/webdriver/common/service.py
+# self.path = executable
+# to
+# self.path = "chromedriver"
 
+pipenv run python app.py amazon --headless --test --no-image  --single-shot 
